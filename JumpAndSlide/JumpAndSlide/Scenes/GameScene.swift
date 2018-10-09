@@ -18,7 +18,7 @@ class GameScene: SKScene {
     var playRewardAdDelegate: PlayRewardAdDelegate?
     
     var isGamePaused = false
-    var isDead = true
+    var isDead = false
     private var isSecondLife = false
     
     var playVideoButton: SpriteKitButton?
@@ -31,6 +31,8 @@ class GameScene: SKScene {
         
         scene?.backgroundColor = .black
         
+        setupGameScenePhysics()
+        
         addPlayer()
         
         motionManager.startAccelerometerUpdates()
@@ -38,17 +40,27 @@ class GameScene: SKScene {
         updateScoreAndGameState(every: 1.0)
     }
     
+    
     // This method is being called every frame
     override func didSimulatePhysics() {
         
         guard let view = view else { return }
         
         if let accelerometerData = motionManager.accelerometerData {
-            
-            let scale = view.bounds.width / 2
-            
-            player.physicsBody?.applyForce(CGVector(dx: scale * CGFloat(accelerometerData.acceleration.x), dy: 0))
+
+            let scale = 4 * view.bounds.width
+            player.physicsBody?.velocity.dx = scale * CGFloat(accelerometerData.acceleration.x)
         }
+        
+    }
+    
+    /**
+     Setup scene physics specific for the game scene.
+     */
+    private func setupGameScenePhysics() {
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        //physicsWorld.contactDelegate = self
         
     }
     

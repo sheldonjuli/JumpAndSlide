@@ -31,13 +31,14 @@ class Player: SKSpriteNode {
         
         super.init(texture: nil, color: .clear, size: CGSize(width: 2 * radius, height: 2 * radius))
         
+        let halfBound = view.bounds.midX - radius
+        constraints = [SKConstraint.positionX(SKRange(lowerLimit: -halfBound, upperLimit: halfBound))]
+        
         physicsBody = SKPhysicsBody(circleOfRadius: radius)
         physicsBody!.allowsRotation = false
-        physicsBody!.affectedByGravity = false
-        
-//        physicsBody!.categoryBitMask = oceanObjectType == .fish ? PhysicsCategories.fish : PhysicsCategories.garbage
-//        physicsBody!.collisionBitMask = PhysicsCategories.none
-//        physicsBody!.contactTestBitMask = PhysicsCategories.lazer
+        physicsBody!.categoryBitMask = PhysicsCategories.player
+        physicsBody!.collisionBitMask = PhysicsCategories.none
+        physicsBody!.contactTestBitMask = PhysicsCategories.obsticle
         
         addChild(playerNode)
         
