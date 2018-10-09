@@ -14,6 +14,10 @@
 		24FC97C4216CF76F00B3C787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FC97C2216CF76F00B3C787 /* Main.storyboard */; };
 		24FC97C6216CF77000B3C787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24FC97C5216CF77000B3C787 /* Assets.xcassets */; };
 		24FC97C9216CF77000B3C787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FC97C7216CF77000B3C787 /* LaunchScreen.storyboard */; };
+		24FC97D7216CFA7F00B3C787 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC97D6216CFA7F00B3C787 /* MenuScene.swift */; };
+		24FC97DC216CFEA300B3C787 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC97DB216CFEA300B3C787 /* Constants.swift */; };
+		24FC97DE216D018400B3C787 /* SpriteKitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC97DD216D018400B3C787 /* SpriteKitButton.swift */; };
+		24FC97E0216D036100B3C787 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC97DF216D036100B3C787 /* SKNodeExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		24FC97C5216CF77000B3C787 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24FC97C8216CF77000B3C787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24FC97CA216CF77000B3C787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24FC97D6216CFA7F00B3C787 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		24FC97DB216CFEA300B3C787 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		24FC97DD216D018400B3C787 /* SpriteKitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitButton.swift; sourceTree = "<group>"; };
+		24FC97DF216D036100B3C787 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 			children = (
 				24FC97BA216CF76F00B3C787 /* GameScene.sks */,
 				24FC97BE216CF76F00B3C787 /* GameScene.swift */,
+				24FC97D6216CFA7F00B3C787 /* MenuScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -91,6 +100,7 @@
 		24FC97D2216CF83E00B3C787 /* CustomNodes */ = {
 			isa = PBXGroup;
 			children = (
+				24FC97DD216D018400B3C787 /* SpriteKitButton.swift */,
 			);
 			path = CustomNodes;
 			sourceTree = "<group>";
@@ -98,6 +108,8 @@
 		24FC97D3216CF84C00B3C787 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				24FC97DB216CFEA300B3C787 /* Constants.swift */,
+				24FC97DF216D036100B3C787 /* SKNodeExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -183,8 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FC97BF216CF76F00B3C787 /* GameScene.swift in Sources */,
+				24FC97DE216D018400B3C787 /* SpriteKitButton.swift in Sources */,
+				24FC97D7216CFA7F00B3C787 /* MenuScene.swift in Sources */,
 				24FC97C1216CF76F00B3C787 /* GameViewController.swift in Sources */,
 				24FC97B9216CF76F00B3C787 /* AppDelegate.swift in Sources */,
+				24FC97DC216CFEA300B3C787 /* Constants.swift in Sources */,
+				24FC97E0216D036100B3C787 /* SKNodeExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
