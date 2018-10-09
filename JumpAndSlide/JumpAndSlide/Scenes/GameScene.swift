@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene {
     
@@ -24,6 +25,7 @@ class GameScene: SKScene {
     var cancelButton: SpriteKitButton?
     
     var player: Player!
+    var motionManager = CMMotionManager()
     
     override func didMove(to view: SKView) {
         
@@ -31,7 +33,23 @@ class GameScene: SKScene {
         
         addPlayer()
         
+        motionManager.startAccelerometerUpdates()
+        
         updateScoreAndGameState(every: 1.0)
+    }
+    
+    // This method is being called every frame
+    override func didSimulatePhysics() {
+        
+        guard let view = view else { return }
+        
+        if let accelerometerData = motionManager.accelerometerData {
+            
+            let scale = view.bounds.width / 2
+            
+            player.physicsBody?.applyForce(CGVector(dx: scale * CGFloat(accelerometerData.acceleration.x), dy: 0))
+        }
+        
     }
     
     /**

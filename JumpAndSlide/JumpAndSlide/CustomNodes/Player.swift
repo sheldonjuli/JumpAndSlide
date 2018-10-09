@@ -31,7 +31,10 @@ class Player: SKSpriteNode {
         
         super.init(texture: nil, color: .clear, size: CGSize(width: 2 * radius, height: 2 * radius))
         
-//        physicsBody = SKPhysicsBody(rectangleOf: oceanObjectNode.size)
+        physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        physicsBody!.allowsRotation = false
+        physicsBody!.affectedByGravity = false
+        
 //        physicsBody!.categoryBitMask = oceanObjectType == .fish ? PhysicsCategories.fish : PhysicsCategories.garbage
 //        physicsBody!.collisionBitMask = PhysicsCategories.none
 //        physicsBody!.contactTestBitMask = PhysicsCategories.lazer
