@@ -17,7 +17,7 @@ class GameScene: SKScene {
     var playRewardAdDelegate: PlayRewardAdDelegate?
     
     var isGamePaused = false
-    var isDead = false
+    var isDead = true
     private var isSecondLife = false
     
     var playVideoButton: SpriteKitButton?
@@ -25,7 +25,23 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        scene?.backgroundColor = .black
+        scene?.backgroundColor = .blue
+        
+        updateScoreAndGameState(every: 1.0)
+    }
+    
+    /**
+     Repetitively call updateScoreAndGameState() to update the score and game state.
+     
+     - Parameter second: time interval between creations.
+     */
+    func updateScoreAndGameState(every second: Double) {
+        
+        self.run(SKAction.repeatForever(SKAction.sequence([
+            SKAction.run{ self.updateScoreAndGameState() },
+            SKAction.wait(forDuration: second)
+            ])))
+        
     }
     
     func updateScoreAndGameState() {
