@@ -34,6 +34,8 @@
 		24FC97DB216CFEA300B3C787 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		24FC97DD216D018400B3C787 /* SpriteKitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitButton.swift; sourceTree = "<group>"; };
 		24FC97DF216D036100B3C787 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
+		3E9FAF543C8045513F154D16 /* Pods-JumpAndSlide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpAndSlide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JumpAndSlide/Pods-JumpAndSlide.debug.xcconfig"; sourceTree = "<group>"; };
+		92E25C1D79723A55C772AD0B /* Pods-JumpAndSlide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JumpAndSlide.release.xcconfig"; path = "Pods/Target Support Files/Pods-JumpAndSlide/Pods-JumpAndSlide.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,11 +49,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0324B90D5658CC648C1472A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E9FAF543C8045513F154D16 /* Pods-JumpAndSlide.debug.xcconfig */,
+				92E25C1D79723A55C772AD0B /* Pods-JumpAndSlide.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		24FC97AC216CF76F00B3C787 = {
 			isa = PBXGroup;
 			children = (
 				24FC97B7216CF76F00B3C787 /* JumpAndSlide */,
 				24FC97B6216CF76F00B3C787 /* Products */,
+				0324B90D5658CC648C1472A6 /* Pods */,
+				6D24ACBC6C07967BC0B8EC08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +135,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		6D24ACBC6C07967BC0B8EC08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +149,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24FC97CD216CF77000B3C787 /* Build configuration list for PBXNativeTarget "JumpAndSlide" */;
 			buildPhases = (
+				B669E47A40D696280A2F8834 /* [CP] Check Pods Manifest.lock */,
 				24FC97B1216CF76F00B3C787 /* Sources */,
 				24FC97B2216CF76F00B3C787 /* Frameworks */,
 				24FC97B3216CF76F00B3C787 /* Resources */,
@@ -188,6 +209,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B669E47A40D696280A2F8834 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JumpAndSlide-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24FC97B1216CF76F00B3C787 /* Sources */ = {
@@ -344,6 +390,7 @@
 		};
 		24FC97CE216CF77000B3C787 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E9FAF543C8045513F154D16 /* Pods-JumpAndSlide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -363,6 +410,7 @@
 		};
 		24FC97CF216CF77000B3C787 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92E25C1D79723A55C772AD0B /* Pods-JumpAndSlide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
