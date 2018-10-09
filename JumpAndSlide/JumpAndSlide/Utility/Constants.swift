@@ -35,9 +35,12 @@ struct ZPositions {
     static let sceneBackground: CGFloat = 1
     static let sceneBackgroundDeco: CGFloat = 2
     
+    static let player: CGFloat = 10
+    
     // hud elements should have the highest priorities
-    static let hudBackground: CGFloat = 10
-    static let hudLabel: CGFloat = 11
+    static let hudBackground: CGFloat = 20
+    static let hudLabel: CGFloat = 21
+    
 }
 
 // Relative to parent size
@@ -89,20 +92,8 @@ extension SKView {
     
     // Game Scene
     
-    var playerIconPosition: CGPoint {
-        return CGPoint(x: bounds.maxX * 0.5, y: bounds.maxY * 0.9)
-    }
-    
-    var lazerPosition: CGPoint {
-        return CGPoint(x: bounds.maxX * 0.5, y: bounds.maxY * 0.9)
-    }
-    
-    var batteryIconPosition: CGPoint {
-        return CGPoint(x: bounds.maxX * 0.9, y: bounds.maxY * 0.925)
-    }
-    
-    var garbageIconPosition: CGPoint {
-        return CGPoint(x: bounds.maxX * 0.9, y: bounds.maxY * 0.85)
+    var playerPosition: CGPoint {
+        return CGPoint(x: bounds.maxX * 0.5, y: bounds.maxY * 0.2)
     }
     
     var playRewardAdsButtonPosition: CGPoint {

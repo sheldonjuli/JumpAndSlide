@@ -23,9 +23,13 @@ class GameScene: SKScene {
     var playVideoButton: SpriteKitButton?
     var cancelButton: SpriteKitButton?
     
+    var player: Player!
+    
     override func didMove(to view: SKView) {
         
-        scene?.backgroundColor = .blue
+        scene?.backgroundColor = .black
+        
+        addPlayer()
         
         updateScoreAndGameState(every: 1.0)
     }
@@ -115,6 +119,12 @@ class GameScene: SKScene {
         playVideoButton?.removeFromParent()
         cancelButton?.removeFromParent()
         
+    }
+    
+    func addPlayer() {
+        guard let view = view else { return }
+        player = Player(view: view)
+        addChild(player)
     }
     
 }
