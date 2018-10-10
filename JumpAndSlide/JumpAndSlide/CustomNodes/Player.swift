@@ -24,21 +24,21 @@ class Player: SKSpriteNode {
         let playerNode = SKShapeNode(circleOfRadius: radius)
         playerNode.fillColor = .white
         playerNode.strokeColor = .clear
-        playerNode.position = view.playerPosition
         playerNode.zPosition = ZPositions.player
         
         playerColor = .white
         
         super.init(texture: nil, color: .clear, size: CGSize(width: 2 * radius, height: 2 * radius))
         
-        let halfBound = view.bounds.midX - radius
-        constraints = [SKConstraint.positionX(SKRange(lowerLimit: -halfBound, upperLimit: halfBound))]
+        position = view.playerPosition
+        
+        constraints = [SKConstraint.positionX(SKRange(lowerLimit: 0, upperLimit: view.bounds.maxX))]
         
         physicsBody = SKPhysicsBody(circleOfRadius: radius)
         physicsBody!.allowsRotation = false
         physicsBody!.categoryBitMask = PhysicsCategories.player
         physicsBody!.collisionBitMask = PhysicsCategories.none
-        physicsBody!.contactTestBitMask = PhysicsCategories.obsticle
+        physicsBody!.contactTestBitMask = PhysicsCategories.block
         
         addChild(playerNode)
         

@@ -34,6 +34,7 @@ class GameScene: SKScene {
         setupGameScenePhysics()
         
         addPlayer()
+        addBlock(every: 2)
         
         motionManager.startAccelerometerUpdates()
         
@@ -45,6 +46,14 @@ class GameScene: SKScene {
     override func didSimulatePhysics() {
         
         guard let view = view else { return }
+        
+        // Remove out of scene objects
+        for object in children {
+            if object.position.x < -100 || object.position.x > view.bounds.maxX + 100
+            || object.position.y < -100 || object.position.y > view.bounds.maxY + 100 {
+                object.removeFromParent()
+            }
+        }
         
         if let accelerometerData = motionManager.accelerometerData {
 
@@ -155,6 +164,15 @@ class GameScene: SKScene {
         guard let view = view else { return }
         player = Player(view: view)
         addChild(player)
+    }
+    
+    func addBlock(every second: Double) {
+        guard let view = view else { return }
+        
+        self.run(SKAction.repeatForever(SKAction.sequence([
+            SKAction.run{ self.addChild(Block(view: view, level: 1)) },
+            SKAction.wait(forDuration: second)
+            ])))
     }
     
 }

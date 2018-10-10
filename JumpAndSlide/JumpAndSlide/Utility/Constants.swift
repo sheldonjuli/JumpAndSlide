@@ -34,7 +34,8 @@ struct AnchorPoints {
 struct ZPositions {
     static let sceneBackground: CGFloat = 1
     static let sceneBackgroundDeco: CGFloat = 2
-    
+ 
+    static let block: CGFloat = 9
     static let player: CGFloat = 10
     
     // hud elements should have the highest priorities
@@ -68,7 +69,7 @@ struct PhysicsCategories {
     static let all: UInt32 = UInt32.max
     static let edge: UInt32 = 0x1 << 1
     static let player: UInt32 = 0x1 << 2
-    static let obsticle: UInt32 = 0x1 << 3
+    static let block: UInt32 = 0x1 << 3
 }
 
 
@@ -96,7 +97,11 @@ extension SKView {
     // Game Scene
     
     var playerPosition: CGPoint {
-        return CGPoint(x: bounds.maxX * 0.5, y: bounds.maxY * 0.2)
+        return CGPoint(x: bounds.midX, y: bounds.maxY * 0.2)
+    }
+    
+    var blockStartingPosition: CGPoint {
+        return CGPoint(x: bounds.midX, y: bounds.maxY + 100)
     }
     
     var playRewardAdsButtonPosition: CGPoint {
